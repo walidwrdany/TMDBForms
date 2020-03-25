@@ -1,0 +1,17 @@
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\TMDBForms.exe.config
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\TMDBForms.exe
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\TMDBForms.pdb
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\Newtonsoft.Json.dll
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\TMDbLib.dll
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\Newtonsoft.Json.xml
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.csprojAssemblyReference.cache
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.Properties.Resources.resources
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.csproj.GenerateResource.cache
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.csproj.CoreCompileInputs.cache
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.csproj.CopyComplete
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.exe
+C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\obj\Debug\TMDBForms.pdb

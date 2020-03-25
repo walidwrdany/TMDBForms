@@ -15,19 +15,17 @@ using TMDbLib.Objects.Search;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Net;
 using TMDbLib.Objects.Collections;
+using TMDBForms.ViewModels;
 
 namespace TMDBForms
 {
     public partial class Form1 : Form
     {
 
-
         private TMDbClient client;
         private DBVM dBVM;
         private bool shouldSave;
         private SearchContainer<SearchMovie> results;
-
-
 
         public Form1()
         {
@@ -36,11 +34,6 @@ namespace TMDBForms
             dBVM = new DBVM();
             shouldSave = false;
         }
-
-
-
-
-
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
@@ -54,12 +47,6 @@ namespace TMDBForms
                 await Db(dialog.FileName);
             }
         }
-
-
-
-
-
-
         private async Task Db(string directory)
         {
 
@@ -144,13 +131,6 @@ namespace TMDBForms
                 checkBox1_backdrop.Enabled = true;
             }
         }
-
-
-
-
-
-
-
         private async Task DownloadDataAsync(string imagePath, string size, string item)
         {
             if (!String.IsNullOrWhiteSpace(imagePath))
@@ -169,13 +149,6 @@ namespace TMDBForms
                 }
             }
         }
-
-
-
-
-
-
-
         private async Task<SearchContainer<SearchMovie>> GetMovieByNameAsync(string stPath)
         {
 
@@ -212,30 +185,16 @@ namespace TMDBForms
 
             return results;
         }
-
-
-
-
-
         private SearchContainer<SearchMovie> CheckResults(SearchContainer<SearchMovie> results, string name)
         {
             if (results.Results.Count > 1)
                 results.Results = results.Results.Where(a => a.Title.Like(name)).ToList();
             return results;
         }
-
-
-
-
         private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
         }
-
-
-
-
-
         private async Task<Movie> GetMovieByIdAsync(int id, string moviePath)
         {
             Movie movie = new Movie();
@@ -263,13 +222,6 @@ namespace TMDBForms
 
             return movie;
         }
-
-
-
-
-
-
-
         private async Task FetchConfig(TMDbClient client)
         {
             FileInfo configJson = new FileInfo("config.json");
@@ -293,12 +245,6 @@ namespace TMDBForms
                 File.WriteAllText(configJson.FullName, json, Encoding.UTF8);
             }
         }
-
-
-
-
-
-
         private DBVM FetchDB(FileInfo DB)
         {
             tb.AppendLine("DB file: " + DB.FullName + ", Exists: " + DB.Exists);
@@ -318,20 +264,11 @@ namespace TMDBForms
 
             return dBVM;
         }
-
-
-
-
         private List<string> GetAllFilesByType(string directory, string[] types)
         {
             return Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories)
                 .Where(file => types.Any(x => file.EndsWith(x, StringComparison.OrdinalIgnoreCase))).ToList();
         }
-
-
-
-
-
         private void PrintResult(SearchMovie result)
         {
             tb.AppendLine(" ID : " + result.Id);
@@ -345,86 +282,5 @@ namespace TMDBForms
             tb.AppendLine(" Vote Average : " + result.VoteAverage);
             tb.AppendLine(" Vote Count : " + result.VoteCount);
         }
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-    public static class MyStringExtensions
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="toSearch"></param>
-        /// <param name="toFind"></param>
-        /// <returns></returns>
-        public static bool Like(this string toSearch, string toFind)
-        {
-            return Regex.Replace(Regex.Replace(toSearch.ToLower(), @"[.()\:\!\-\[\]]", " ").Trim(), @"\s+", " ") == toFind.ToLower() ? true : false;
-        }
-    }
-
-
-
-    public static class WinFormsExtensions
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="value"></param>
-        public static void AppendLine(this TextBox source, string value)
-        {
-            if (source.Text.Length == 0)
-                source.Text = value;
-            else
-                source.AppendText(Environment.NewLine + value);
-        }
-
-
-        public static void AppendError(this TextBox textBox, string ex_Message, string ex = "")
-        {
-            textBox.AppendLine("");
-            textBox.AppendLine(ex_Message);
-            textBox.AppendLine(ex);
-            textBox.AppendLine("");
-            textBox.AppendLine("");
-            textBox.AppendLine("-----------------------");
-        }
-    }
-
-
-
-
-
-
-    public class DBVM
-    {
-        public List<Movie> Movies { get; set; }
-        public List<Collection> Collections { get; set; }
-        public List<Location> Locations { get; set; }
-    }
-
-
-
-
-
-    public class Location
-    {
-        public int Id { get; set; }
-        public string MoviePath { get; set; }
-    }
-
-
-
-
 }

@@ -1,0 +1,21 @@
+﻿DB file: C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\DB.json, Exists: False
+Creating new DB
+Config file: C:\Users\waled\Source\Repos\TMDBForms\TMDBForms\bin\Debug\config.json, Exists: False
+Getting new config
+Storing config
+
+found 1 movie in "C:\Users\waled\Downloads\Movies\1917 (2019) [720p] [WEBRip] [YTS.MX]"
+---------------------------------------------------------------------------
+Searched for movies: '1917.2019.720p.WEBRip.x264.AAC-[YTS.MX]', found 3 results in 1 pages
+ ID : 530915
+ Title : 1917
+ Original Title : 1917
+ Release date : 25-12-2019
+ Popularity : 118.719
+ Vote Average : 8
+ Vote Count : 3602
+ http://image.tmdb.org/t/p/w780/AuGiPiGMYMkSosOJ3BQjDEAiwtO.jpg
+
+
+-----------------------
+Save Changes
