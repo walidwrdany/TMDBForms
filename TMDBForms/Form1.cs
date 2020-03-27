@@ -180,7 +180,7 @@ namespace TMDBForms
                 }
             }
 
-            results = await client.SearchMovieAsync(name, 0, false, year);
+            results = await client.SearchMovieAsync(name);
             results = CheckResults(results, name);
 
             return results;
