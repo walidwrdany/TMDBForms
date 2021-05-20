@@ -9,5 +9,7 @@ namespace TMDBForms.ViewModels
         public List<Movie> Movies { get; set; }
         public List<Collection> Collections { get; set; }
         public List<Location> Locations { get; set; }
+        //changes
+        //public List<Location> Locations { get; set; }
     }
 }
