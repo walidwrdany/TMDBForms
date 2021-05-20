@@ -4,6 +4,5 @@
     {
         public int Id { get; set; }
         public string MoviePath { get; set; }
-        //public string MoviePath { get; set; }
     }
 }
