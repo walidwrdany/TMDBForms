@@ -14,8 +14,10 @@ namespace TMDBForms
         {
             return Regex.Replace(Regex.Replace(toSearch.ToLower(), @"[.()\:\!\-\[\]]", " ").Trim(), @"\s+", " ") == toFind.ToLower() ? true : false;
         }
+
+
         /// <summary>
-        /// 
+        /// test 33
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
