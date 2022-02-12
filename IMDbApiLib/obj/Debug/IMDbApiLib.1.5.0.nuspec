@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>IMDbApiLib</id>
+    <version>1.5.0</version>
+    <authors>IMDb-API</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>IMDbApiLib_Icon.png</icon>
+    <projectUrl>https://imdb-api.com/</projectUrl>
+    <description>The IMDb-API is a web service for receiving movie, serial and cast information. APIs results is a JSON and includes items such as movie specifications, images, posters, trailers, ratings, Wikipedia page content and more.</description>
+    <copyright>https://imdb-api.com</copyright>
+    <tags>imdb,imdb-api,tmdb,movie,wikipedia,themoviedb,subscene,rottentomatoes,metacritics,thetvdb</tags>
+    <repository url="https://github.com/IMDb-API/IMDbApiLib" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\source\GitHub\TMDBForms\IMDbApiLib\bin\Debug\net45\IMDbApiLib.dll" target="lib\net45\IMDbApiLib.dll" />
+    <file src="D:\source\GitHub\TMDBForms\IMDbApiLib\bin\Debug\netstandard2.0\IMDbApiLib.dll" target="lib\netstandard2.0\IMDbApiLib.dll" />
+    <file src="D:\source\GitHub\TMDBForms\IMDbApiLib\IMDbApiLib_Icon.png" target="IMDbApiLib_Icon.png" />
+  </files>
+</package>

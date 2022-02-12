@@ -1,0 +1,10 @@
+D:\source\GitHub\TMDBForms\IMDbApiLib\bin\Debug\net45\IMDbApiLib.dll
+D:\source\GitHub\TMDBForms\IMDbApiLib\bin\Debug\net45\IMDbApiLib.pdb
+D:\source\GitHub\TMDBForms\IMDbApiLib\bin\Debug\net45\Newtonsoft.Json.dll
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.AssemblyInfoInputs.cache
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.AssemblyInfo.cs
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.csproj.CoreCompileInputs.cache
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.csproj.CopyComplete
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.dll
+D:\source\GitHub\TMDBForms\IMDbApiLib\obj\Debug\net45\IMDbApiLib.pdb

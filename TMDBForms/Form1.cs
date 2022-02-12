@@ -16,13 +16,17 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Net;
 using TMDbLib.Objects.Collections;
 using TMDBForms.ViewModels;
+using IMDbApiLib;
+using IMDbApiLib.Models;
 
 namespace TMDBForms
 {
+
     public partial class Form1 : Form
     {
 
-        private TMDbClient client;
+        private readonly TMDbClient TMDbClient;
+        private readonly ApiLib ApiLib;
         private DBVM dBVM;
         private bool shouldSave;
         private SearchContainer<SearchMovie> results;
@@ -30,10 +34,13 @@ namespace TMDBForms
         public Form1()
         {
             InitializeComponent();
-            client = new TMDbClient("c6b31d1cdad6a56a23f0c913e2482a31", true);
+            TMDbClient = new TMDbClient("c6b31d1cdad6a56a23f0c913e2482a31", true);
+            ApiLib = new ApiLib("k_f1ykeqs7");
             dBVM = new DBVM();
             shouldSave = false;
         }
+
+
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
@@ -47,6 +54,7 @@ namespace TMDBForms
                 await Db(dialog.FileName);
             }
         }
+
         private async Task Db(string directory)
         {
 
@@ -60,7 +68,7 @@ namespace TMDBForms
             {
                 dBVM = FetchDB(DB); //Fill Model from DataBase if Exist
 
-                await FetchConfig(client);
+                await FetchConfig(TMDbClient);
 
                 string[] extensions = new[] { ".MP4", ".MKV", ".TS" };
                 var listOfFiles = GetAllFilesByType(directory, extensions);
@@ -89,11 +97,20 @@ namespace TMDBForms
                             PrintResult(searchMovie);
                             Movie movie = await GetMovieByIdAsync(searchMovie.Id, _movie);
 
+                            if (true)
+                            {
+                                //// Title Data - Get Full Data
+                                //var data = await ApiLib.TitleAsync(movie.ImdbId, Language.en, "FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia");
+
+                                //// Subtitles (From Subscene)
+                                //var subtitleData = await ApiLib.SubtitleDataAsync(movie.ImdbId);
+                            }
+
                             if (checkBox1_poster.Checked)
-                                await DownloadDataAsync(movie.PosterPath, client.Config.Images.PosterSizes.ElementAtOrDefault(client.Config.Images.PosterSizes.Count - 2), _movie);
+                                await DownloadDataAsync(movie.PosterPath, TMDbClient.Config.Images.PosterSizes.ElementAtOrDefault(TMDbClient.Config.Images.PosterSizes.Count - 2), _movie);
 
                             if (checkBox1_backdrop.Checked)
-                                await DownloadDataAsync(movie.BackdropPath, client.Config.Images.BackdropSizes.ElementAtOrDefault(client.Config.Images.BackdropSizes.Count - 2), _movie);
+                                await DownloadDataAsync(movie.BackdropPath, TMDbClient.Config.Images.BackdropSizes.ElementAtOrDefault(TMDbClient.Config.Images.BackdropSizes.Count - 2), _movie);
                         }
                         else
                             tb.AppendText(", No results found");
@@ -131,6 +148,7 @@ namespace TMDBForms
                 checkBox1_backdrop.Enabled = true;
             }
         }
+
         private async Task DownloadDataAsync(string imagePath, string size, string item)
         {
             if (!String.IsNullOrWhiteSpace(imagePath))
@@ -138,7 +156,7 @@ namespace TMDBForms
                 var dir = Path.GetDirectoryName(item);
                 if (!new FileInfo(dir + imagePath).Exists)
                 {
-                    Uri imageUri = client.GetImageUrl(size, imagePath);
+                    Uri imageUri = TMDbClient.GetImageUrl(size, imagePath);
                     tb.AppendLine(" " + imageUri);
 
                     using (WebClient wc = new WebClient())
@@ -149,6 +167,7 @@ namespace TMDBForms
                 }
             }
         }
+
         private async Task<SearchContainer<SearchMovie>> GetMovieByNameAsync(string stPath)
         {
 
@@ -169,7 +188,7 @@ namespace TMDBForms
                 for (int i = 0; i < str2.Length; i++)
                 {
                     name = string.Join(" ", str2.Take(i + 1));
-                    results = await client.SearchMovieAsync(name);
+                    results = await TMDbClient.SearchMovieAsync(name);
                     if (results.Results.Count > 0)
                         continue;
                     else
@@ -180,21 +199,24 @@ namespace TMDBForms
                 }
             }
 
-            results = await client.SearchMovieAsync(name);
+            results = await TMDbClient.SearchMovieAsync(name);
             results = CheckResults(results, name);
 
             return results;
         }
+
         private SearchContainer<SearchMovie> CheckResults(SearchContainer<SearchMovie> results, string name)
         {
             if (results.Results.Count > 1)
                 results.Results = results.Results.Where(a => a.Title.Like(name)).ToList();
             return results;
         }
+
         private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
         }
+
         private async Task<Movie> GetMovieByIdAsync(int id, string moviePath)
         {
             Movie movie = new Movie();
@@ -202,7 +224,7 @@ namespace TMDBForms
 
             if (!dBVM.Movies.Any(a => a.Id == id))
             {
-                movie = await client.GetMovieAsync(id, MovieMethods.Credits | MovieMethods.ReleaseDates | MovieMethods.Videos | MovieMethods.Keywords);
+                movie = await TMDbClient.GetMovieAsync(id, MovieMethods.Credits | MovieMethods.ReleaseDates | MovieMethods.Videos | MovieMethods.Keywords);
                 dBVM.Movies.Add(movie);
                 dBVM.Locations.Add(new Location() { Id = movie.Id, MoviePath = moviePath });
 
@@ -222,6 +244,7 @@ namespace TMDBForms
 
             return movie;
         }
+
         private async Task FetchConfig(TMDbClient client)
         {
             FileInfo configJson = new FileInfo("config.json");
@@ -245,6 +268,7 @@ namespace TMDBForms
                 File.WriteAllText(configJson.FullName, json, Encoding.UTF8);
             }
         }
+
         private DBVM FetchDB(FileInfo DB)
         {
             tb.AppendLine("DB file: " + DB.FullName + ", Exists: " + DB.Exists);
@@ -264,11 +288,13 @@ namespace TMDBForms
 
             return dBVM;
         }
+
         private List<string> GetAllFilesByType(string directory, string[] types)
         {
             return Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories)
                 .Where(file => types.Any(x => file.EndsWith(x, StringComparison.OrdinalIgnoreCase))).ToList();
         }
+
         private void PrintResult(SearchMovie result)
         {
             tb.AppendLine(" ID : " + result.Id);
@@ -282,5 +308,6 @@ namespace TMDBForms
             tb.AppendLine(" Vote Average : " + result.VoteAverage);
             tb.AppendLine(" Vote Count : " + result.VoteCount);
         }
+
     }
 }

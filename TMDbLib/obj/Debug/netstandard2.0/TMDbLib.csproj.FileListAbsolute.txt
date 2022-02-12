@@ -1,0 +1,10 @@
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\netstandard2.0\TMDbLib.deps.json
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\netstandard2.0\TMDbLib.dll
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\netstandard2.0\TMDbLib.pdb
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.csproj.AssemblyReference.cache
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.AssemblyInfoInputs.cache
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.AssemblyInfo.cs
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.csproj.CoreCompileInputs.cache
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.dll
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\netstandard2.0\TMDbLib.pdb

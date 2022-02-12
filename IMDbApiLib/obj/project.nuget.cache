@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "W9p3ECnF4ILHAJX2jBZYnvJqrJyAsEluyFxS5WknhNV2+5e8kABZlvUoiI3x810Ph0/2OFUN66hj96gtxZZ/BQ==",
+  "success": true,
+  "projectFilePath": "D:\\source\\GitHub\\TMDBForms\\IMDbApiLib\\IMDbApiLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\walid\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\walid\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

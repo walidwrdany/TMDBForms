@@ -1,0 +1,10 @@
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\net45\TMDbLib.dll
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\net45\TMDbLib.pdb
+D:\source\GitHub\TMDBForms\TMDbLib\bin\Debug\net45\Newtonsoft.Json.dll
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.AssemblyInfoInputs.cache
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.AssemblyInfo.cs
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.csproj.CoreCompileInputs.cache
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.csproj.CopyComplete
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.dll
+D:\source\GitHub\TMDBForms\TMDbLib\obj\Debug\net45\TMDbLib.pdb
